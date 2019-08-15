@@ -22,7 +22,7 @@ module Redmine
       end
     end
 
-    class GFMlist < Redcarpet::Render::HTML
+    class GFMlist < ::Redcarpet::Render::HTML
       def list_item(text, list_type)
         if text.start_with?("- [x]", "- [X]")
           text[0..2] = %(<input type="checkbox" checked="checked">)
