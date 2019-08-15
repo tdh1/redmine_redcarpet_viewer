@@ -24,9 +24,9 @@ module Redmine
 
     class GFMlist < Redcarpet::Render::HTML
       def list_item(text, list_type)
-        if text.start_with?("- [x]", "- [X]")
+        if text.start_with?("[x]", "[X]")
           text[0..2] = %(<input type="checkbox" checked="checked">)
-        elsif text.start_with?("- [ ]")
+        elsif text.start_with?("[ ]")
           text[0..2] = %(<input type="checkbox">)
         end
 
