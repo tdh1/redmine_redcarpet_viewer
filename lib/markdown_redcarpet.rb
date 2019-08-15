@@ -5,7 +5,7 @@ require 'redcarpet'
 module Redmine
   module MarkdownRedcarpet
 
-    class HTMLwithSyntaxHighlighting < ::Redcarpet::Render::HTML
+    class HTMLwithSyntaxHighlighting < Redcarpet::Render::HTML
 
       def block_code(code, language)
         if language != nil
@@ -22,7 +22,7 @@ module Redmine
       end
     end
 
-    class GFMlist < ::Redcarpet::Render::HTML
+    class GFMlist < Redcarpet::Render::HTML
       def list_item(text, list_type)
         if text.start_with?("- [x]", "- [X]")
           text[0..2] = %(<input type="checkbox" checked="checked">)
@@ -35,7 +35,7 @@ module Redmine
     end
     
     def to_html(text)
-      markdown = ::Redcarpet::Markdown.new(
+      markdown = Redcarpet::Markdown.new(
         HTMLwithSyntaxHighlighting,
         GFMlist,
         :autolink => true,
