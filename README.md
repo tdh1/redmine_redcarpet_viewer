@@ -26,3 +26,7 @@ Restart Redmine.
 ```console
 $ sudo service httpd restart
 ```
+
+## Acknowledgement
+
+This Redmine plugin is based off the original soruce code of Toshiyuki Goto forked from https://github.com/ngyuki/redmine_redcarpet_viewer.

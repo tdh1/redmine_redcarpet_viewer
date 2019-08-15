@@ -22,9 +22,22 @@ module Redmine
       end
     end
 
+    class GFMlist < Redcarpet::Render::HTML
+      def list_item(text, list_type)
+        if text.start_with?("[x]", "[X]")
+          text[0..2] = %(<input type="checkbox" checked="checked">)
+        elsif text.start_with?("[ ]")
+          text[0..2] = %(<input type="checkbox">)
+        end
+
+        %(<li>#{text}</li>)
+      end
+    end
+    
     def to_html(text)
       markdown = ::Redcarpet::Markdown.new(
         HTMLwithSyntaxHighlighting,
+        GFMlist,
         :autolink => true,
         :space_after_headers => true,
         :fenced_code_blocks => true,
